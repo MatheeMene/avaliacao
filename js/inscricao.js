@@ -1,25 +1,27 @@
-var botaoEnvia = $('#envia-formulario');
-
 // botaoEnvia.addClass('disabled').prop("disabled", true);
 // botaoEnviar.removeClass('disabled').prop("disabled", false);
+var botaoEnvia = $('#envia-formulario');
 
-var testaNome;
+var nome = $('#nome');
 
-function validaNome(input) {
+function validaNome() {
 
-    input.classList.remove("incorreto");    
-    input.classList.remove("correto");   
+    nome.on('blur', () => {
 
-    if (input.value.length == 0) {
-        input.classList.add("incorreto");
-        return testaNome = false;
+        var expReg = /[a-z]\s[a-z]/gim;
+        var testaER = expReg.test(nome.val());
 
-    } else {
-        input.classList.add("correto");
-        return testaNome = true;
-    }
+        if(testaER) {
+            nome.addClass('correto');
+        } else {
+            nome.addClass('incorreto');
+        }
+        
+    });
     
 }
+
+validaNome();
 
 
 var testaEmail;
