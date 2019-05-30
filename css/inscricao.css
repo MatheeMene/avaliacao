@@ -1,0 +1,99 @@
+body,
+html {
+    width: 100%;
+}
+.titulo-principal {
+    padding: 3em;
+    text-align: center;
+    background-color: #263e7c;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+}
+.titulo-principal h1 {
+    font-size: 3.5em;
+    color: #FFF;
+    text-shadow: 2.5px 1px #000;
+}
+.align {
+    width: 35%;
+    margin-left: calc(49% - 17.5%);
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+}
+.align p {
+    padding-bottom: 2em;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.bold {
+    font-weight: bold;
+    padding-bottom: .2em;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.align form fieldset label {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.input-text {
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 1em;
+    padding: .5em;
+}
+.botao-envia {
+    width: 90%;
+    padding: .6em;
+    margin-left: calc(52% - 45%);
+    background-color: #263e7c;
+    border: 2px solid #263e7c;
+    cursor: pointer;
+}
+.botao-envia:hover {
+    transition: .6s;
+    background-color: #FFF;
+}
+.botao-envia:hover a {
+    color: #263e7c;
+}
+.botao-envia a {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    color: #FFF;
+}
+.rodape {
+    padding: 3em;
+    background-color: #272727;
+    
+}
+.rodape li a {
+    line-height: 1.6;
+    font-size: 1.5em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #728f9c;
+}
+.rodape .titulo-rodape {
+    color: #FFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 4.5em;
+    padding-bottom: .4em;
+}
+
+/* class JS */
+
+.incorreto {
+    border: 1px solid red;
+}
+.correto {
+    border: 1px solid green;
+}
+.disabled {
+    background-color: grey;
+    border: 2px solid grey;
+    cursor: default;
+}
+.disabled:hover {
+    background-color: grey;
+    border: 2px solid grey;
+}
+.disabled:hover a {
+    color: #FFF;
+}
