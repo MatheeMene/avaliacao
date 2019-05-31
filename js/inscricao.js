@@ -2,14 +2,18 @@
 // botaoEnviar.removeClass('disabled').prop("disabled", false);
 var botaoEnvia = $('#envia-formulario');
 
+
 var nome = $('#nome');
 
 function validaNome() {
 
     nome.on('blur', () => {
 
-        var expReg = /[a-z]\s[a-z]/gim;
-        var testaER = expReg.test(nome.val());
+        let expReg = /[a-z]\s[a-z]/gim;
+        let testaER = expReg.test(nome.val());
+
+        nome.removeClass('correto');
+        nome.removeClass('incorreto');
 
         if(testaER) {
             nome.addClass('correto');
@@ -24,22 +28,31 @@ function validaNome() {
 validaNome();
 
 
-var testaEmail;
+var email = $('#email');
 
-function validaEmail(input) {
+function validaEmail() {
 
-    input.classList.remove("incorreto");    
-    input.classList.remove("correto");   
+    email.on('blur', () => {
 
-    if (input.value.length == 0) {
-        input.classList.add("incorreto");
-        return testaEmail = false;
-    } else {
-        input.classList.add("correto");
-        return testaEmail = true;
-    }
+        let expReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let testaER = expReg.test(email.val());
+
+        email.removeClass('correto');
+        email.removeClass('incorreto');
+
+        if(testaER) {
+            email.addClass('correto');
+        } else {
+            email.addClass('incorreto');
+        }
+    
+    });
 
 }
+
+validaEmail();
+
+
 
 var validaRa;
 
@@ -63,6 +76,7 @@ function validaRadio() {
         return validaRa = true;
     }
 }
+
 
 var validaCheck;
 
@@ -115,6 +129,7 @@ $("#clicaCheck").click(() => {
 
 var form = $('#form-inscricao');
 
+/*
 botaoEnvia.click((event) => {
 
     event.preventDefault();
@@ -128,8 +143,5 @@ botaoEnvia.click((event) => {
         return;
     }
 
-
-
-
 });
-
+*/
