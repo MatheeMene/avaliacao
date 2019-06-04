@@ -215,13 +215,13 @@
     color: #FFF;
 }
 .rodape {
-    padding: 3em;
+    padding: 2em;
     background-color: #272727;
     
 }
 .rodape ul li a {
     line-height: 1.6;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: 'Open Sans Condensed', sans-serif;
     color: #728f9c;
     transition: .6s;
@@ -229,7 +229,7 @@
 .rodape .titulo-rodape {
     color: #FFF;
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 4.5em;
+    font-size: 4em;
     padding-bottom: .4em;
 }
 .rodape ul li a:hover {
