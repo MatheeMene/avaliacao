@@ -30,7 +30,6 @@ function validaNome() {
 validaNome();
 
 
-
 var email = $('#email');
 var campoEmail;
 
@@ -79,7 +78,6 @@ function validaRadio() {
     $("input[type='radio']").each(() => {
 
         if(!$("input:radio[name='disponibilidade']").is(':checked')){
-            alert("Escolha um horário de disponibilidade");
             return campoRadio = false;
         } else {
             return campoRadio = true;
@@ -100,26 +98,29 @@ campoRadioPersonalizar.on('blur', () => {
     } else {
         campoRadioPersonalizar.addClass('correto');
     }
+
 });
 
 
 var validaCheck;
+var checkOutro = $('input:checkbox[id="check-outro"]');
+var campoInteresses = $('#campo-interesses');
 
 function validaCheckbox() {
 
-    var erro = 0;
+    if(checkOutro.is(':checked')) {
+        checkOutro.removeClass('distancia-display');
+        campoInteresses.removeClass('some-campo');
+    } else {
+        checkOutro.addClass('distancia-display');
+        campoInteresses.addClass('some-campo');
+    }
 
     $('input[type="checkbox"]').each(() => {
 
         if(!$('input:checkbox[name="interesses"]').is(':checked')) {
-            erro++;
-        }
-
-        if(erro > 0){
-            $('#campo-interesses').addClass('incorreto');
             return validaCheck = false;
         } else {
-            $('#campo-interesses').addClass('correto');
             return validaCheck = true;
         }
 
@@ -127,36 +128,45 @@ function validaCheckbox() {
 
 }
 
-var textArea;
+$('input[type="checkbox"]').click(() => {
+    validaCheckbox();
+});
 
-function validaTextArea(input) {
+campoInteresses.on('blur', () => {
 
-    input.classList.remove("incorreto");    
-    input.classList.remove("correto");   
-
-    if (input.value.length < 140) {
-        input.classList.add("incorreto");
-        return textArea = false;
+    if(campoInteresses.val().length == 0) {
+        campoInteresses.addClass('incorreto');
     } else {
-        input.classList.add("correto");
-        return textArea = true;
+        campoInteresses.addClass('correto');
     }
 
-}
+});
 
 
+// var textArea;
 
-$("#clicaCheck").click(() => {
-    validaCheckbox();
-})
+// function validaTextArea(input) {
 
-var form = $('#form-inscricao');
+//     input.classList.remove("incorreto");    
+//     input.classList.remove("correto");   
+
+//     if (input.value.length < 140) {
+//         input.classList.add("incorreto");
+//         return textArea = false;
+//     } else {
+//         input.classList.add("correto");
+//         return textArea = true;
+//     }
+
+// }
 
 
 var botaoEnvia = $('#envia-formulario');
 
-botaoEnvia.click(() => {
+botaoEnvia.click((event) => {
 
-    validaRadio();
+    event.preventDefault();
+
+
 
 });
