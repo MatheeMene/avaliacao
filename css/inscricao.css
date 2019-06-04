@@ -97,3 +97,10 @@ html {
 .disabled:hover a {
     color: #FFF;
 }
+.some-campo {
+    display: none;
+    padding-bottom: 1em;
+}
+.distancia-display {
+    margin-bottom: 1em;
+}

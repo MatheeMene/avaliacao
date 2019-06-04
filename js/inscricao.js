@@ -1,9 +1,9 @@
 // botaoEnvia.addClass('disabled').prop("disabled", true);
 // botaoEnviar.removeClass('disabled').prop("disabled", false);
-var botaoEnvia = $('#envia-formulario');
 
 
 var nome = $('#nome');
+var campoNome;
 
 function validaNome() {
 
@@ -17,8 +17,10 @@ function validaNome() {
 
         if(testaER) {
             nome.addClass('correto');
+            return campoNome = true;
         } else {
             nome.addClass('incorreto');
+            return campoNome = false;
         }
         
     });
@@ -28,7 +30,9 @@ function validaNome() {
 validaNome();
 
 
+
 var email = $('#email');
+var campoEmail;
 
 function validaEmail() {
 
@@ -42,8 +46,10 @@ function validaEmail() {
 
         if(testaER) {
             email.addClass('correto');
+            return campoEmail = true;
         } else {
             email.addClass('incorreto');
+            return campoEmail = false;
         }
     
     });
@@ -53,29 +59,48 @@ function validaEmail() {
 validaEmail();
 
 
-
-var validaRa;
+var campoRadio;
+var radioPersonalizar = $("input:radio[id='personalizar']");
+var campoRadioPersonalizar = $('#campo-disponibilidade');
 
 function validaRadio() {
-    
-    let erro = 0;
 
-    $("input[type='radio']").each(function(){
-        
+    let campoPersonalizar = $('#personalizar');
+    let campoDisponibilidade = $('#campo-disponibilidade');
+    
+    if (radioPersonalizar.is(':checked')) {
+        campoPersonalizar.removeClass('distancia-display');
+        campoDisponibilidade.removeClass('some-campo');
+    } else {
+        campoPersonalizar.addClass('distancia-display')
+        campoDisponibilidade.addClass('some-campo');
+    }
+    
+    $("input[type='radio']").each(() => {
+
         if(!$("input:radio[name='disponibilidade']").is(':checked')){
-            erro++;
+            alert("Escolha um horário de disponibilidade");
+            return campoRadio = false;
+        } else {
+            return campoRadio = true;
         }
         
     });
-    
-    if(erro > 0){
-        $('#campo-disponibilidade').addClass('incorreto');
-        return validaRa = false;
-    } else {
-        $('#campo-disponibilidade').addClass('correto');
-        return validaRa = true;
-    }
+
 }
+
+$("input[type='radio']").click(() => {
+    validaRadio();
+});
+
+campoRadioPersonalizar.on('blur', () => {
+
+    if(campoRadioPersonalizar.val().length == 0) {
+        campoRadioPersonalizar.addClass('incorreto');
+    } else {
+        campoRadioPersonalizar.addClass('correto');
+    }
+});
 
 
 var validaCheck;
@@ -119,9 +144,7 @@ function validaTextArea(input) {
 
 }
 
-$("#clicaRadio").click(() => {
-    validaRadio();
-});
+
 
 $("#clicaCheck").click(() => {
     validaCheckbox();
@@ -129,19 +152,11 @@ $("#clicaCheck").click(() => {
 
 var form = $('#form-inscricao');
 
-/*
-botaoEnvia.click((event) => {
 
-    event.preventDefault();
+var botaoEnvia = $('#envia-formulario');
 
-    if(testaNome && testaEmail && textArea && validaRa && validaCheck) {
-        alert("envio");
-        $('#form-inscricao').each (function(){
-            this.reset();
-          });
-    } else {
-        return;
-    }
+botaoEnvia.click(() => {
+
+    validaRadio();
 
 });
-*/
