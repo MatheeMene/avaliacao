@@ -1,6 +1,5 @@
-// botaoEnvia.addClass('disabled').prop("disabled", true);
-// botaoEnviar.removeClass('disabled').prop("disabled", false);
-
+var botaoEnvia = $('#envia-formulario');
+botaoEnvia.addClass('disabled').prop("disabled", true);
 
 var nome = $('#nome');
 var campoNome;
@@ -17,10 +16,10 @@ function validaNome() {
 
         if(testaER) {
             nome.addClass('correto');
-            return campoNome = true;
+            campoNome = true;
         } else {
             nome.addClass('incorreto');
-            return campoNome = false;
+            campoNome = false;
         }
         
     });
@@ -45,10 +44,10 @@ function validaEmail() {
 
         if(testaER) {
             email.addClass('correto');
-            return campoEmail = true;
+            campoEmail = true;
         } else {
             email.addClass('incorreto');
-            return campoEmail = false;
+            campoEmail = false;
         }
     
     });
@@ -78,9 +77,9 @@ function validaRadio() {
     $("input[type='radio']").each(() => {
 
         if(!$("input:radio[name='disponibilidade']").is(':checked')){
-            return campoRadio = false;
+            campoRadio = false;
         } else {
-            return campoRadio = true;
+            campoRadio = true;
         }
         
     });
@@ -93,6 +92,9 @@ $("input[type='radio']").click(() => {
 
 campoRadioPersonalizar.on('blur', () => {
 
+    campoRadioPersonalizar.removeClass('correto');
+    campoRadioPersonalizar.removeClass('incorreto');
+
     if(campoRadioPersonalizar.val().length == 0) {
         campoRadioPersonalizar.addClass('incorreto');
     } else {
@@ -102,7 +104,7 @@ campoRadioPersonalizar.on('blur', () => {
 });
 
 
-var validaCheck;
+var campoCheck;
 var checkOutro = $('input:checkbox[id="check-outro"]');
 var campoInteresses = $('#campo-interesses');
 
@@ -119,9 +121,9 @@ function validaCheckbox() {
     $('input[type="checkbox"]').each(() => {
 
         if(!$('input:checkbox[name="interesses"]').is(':checked')) {
-            return validaCheck = false;
+            campoCheck = false;
         } else {
-            return validaCheck = true;
+            campoCheck = true;
         }
 
     });
@@ -134,6 +136,9 @@ $('input[type="checkbox"]').click(() => {
 
 campoInteresses.on('blur', () => {
 
+    campoInteresses.removeClass('correto');
+    campoInteresses.removeClass('incorreto');
+
     if(campoInteresses.val().length == 0) {
         campoInteresses.addClass('incorreto');
     } else {
@@ -143,30 +148,46 @@ campoInteresses.on('blur', () => {
 });
 
 
-// var textArea;
+var campoOpiniao;
 
-// function validaTextArea(input) {
+function validaOpiniao() {
 
-//     input.classList.remove("incorreto");    
-//     input.classList.remove("correto");   
+    var textOpiniao = $('#textOpiniao');
+    
+    textOpiniao.on('blur', () => {
 
-//     if (input.value.length < 140) {
-//         input.classList.add("incorreto");
-//         return textArea = false;
-//     } else {
-//         input.classList.add("correto");
-//         return textArea = true;
-//     }
+        textOpiniao.removeClass('correto');
+        textOpiniao.removeClass('incorreto');
 
-// }
+        if(textOpiniao.val().length < 140) {
+            textOpiniao.addClass('incorreto');
+            campoOpiniao = false;
+
+        } else {
+            textOpiniao.addClass('correto');
+            campoOpiniao = true;
+        }
+
+    });
+    
+}
+
+validaOpiniao();
 
 
-var botaoEnvia = $('#envia-formulario');
+function validaForm() {
 
-botaoEnvia.click((event) => {
+    if(campoNome && campoEmail && campoRadio && campoCheck && campoOpiniao) {
+        botaoEnviar.removeClass('disabled').prop("disabled", false);
+    }
 
-    event.preventDefault();
+}
+
+
+// botaoEnvia.click((event) => {
+
+//     event.preventDefault();
 
 
 
-});
+// });
