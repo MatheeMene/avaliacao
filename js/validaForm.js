@@ -1,7 +1,10 @@
 var botaoEnvia = $('#envia-formulario');
+var email = $('#email');
+var nome = $('#nome');
+var textOpiniao = $('#textOpiniao');
+
 botaoEnvia.addClass('disabled').prop("disabled", true);
 
-var nome = $('#nome');
 var campoNome;
 
 function validaNome() {
@@ -31,7 +34,6 @@ function validaNome() {
 validaNome();
 
 
-var email = $('#email');
 var campoEmail;
 
 function validaEmail() {
@@ -157,8 +159,6 @@ campoInteresses.on('blur', () => {
 var campoOpiniao;
 
 function validaOpiniao() {
-
-    var textOpiniao = $('#textOpiniao');
     
     textOpiniao.on('input', () => {
 
@@ -192,12 +192,6 @@ function validaForm() {
 }
 
 
-// var obj = {
-//         "Nome": nome.val(),
-//         "Email": email.val(),
-//         "Disponibilidade": $("input[name='disponibilidade']:checked").val(),
-//         "Interesse(s)": [$('input[name="interesses"]:checked').val()]
-//     }
 
     
 

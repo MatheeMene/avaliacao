@@ -21,7 +21,7 @@
             <ul id="mensagem-erro">
             </ul>
 
-            <form id="form-inscricao">
+            <form onsubmit="formControl.dadosForm(event)" id="form-inscricao">
                 <fieldset>
                     <label for="nome">
                         Nome completo
@@ -37,22 +37,22 @@
                 <fieldset>
                     <legend class="bold">Maior disponibilidade</legend>
                     <label>
-                        <input name="disponibilidade" type="radio" value="manha">
+                        <input class="disponibilidade" name="disponibilidade" type="radio" value="manha">
                         manha
                     </label>
 
                     <label>
-                        <input name="disponibilidade" type="radio" value="tarde">
+                        <input class="disponibilidade" name="disponibilidade" type="radio" value="tarde">
                         tarde
                     </label>
 
                     <label>
-                        <input name="disponibilidade" type="radio" value="noite">
+                        <input class="disponibilidade" name="disponibilidade" type="radio" value="noite">
                         noite
                     </label>
 
                     <label>
-                        <input id="personalizar" name="disponibilidade" class="distancia-display" type="radio" value="personalizar">
+                        <input class="distancia-display disponibilidade" id="personalizar" name="disponibilidade" type="radio" value="personalizar">
                         personalizar
                     </label>
                   
@@ -62,19 +62,19 @@
                 <fieldset>
                     <legend class="bold">Interesses</legend>
                     <label>
-                        <input type="checkbox" name="interesses" value="ia">
+                        <input class="interesses" type="checkbox" name="interesses" value="ia">
                         IA
                     </label>
                     <label>
-                        <input type="checkbox" name="interesses" value="bid-data">
+                        <input class="interesses" type="checkbox" name="interesses" value="bid-data">
                         Big Data
                     </label>
                     <label>
-                        <input type="checkbox" name="interesses" value="machine-learning">
+                        <input class="interesses" type="checkbox" name="interesses" value="machine-learning">
                         Machine Learning
                     </label>
                     <label>
-                        <input class="distancia-display" id="check-outro" type="checkbox" name="interesses" value="outro">
+                        <input class="distancia-display interesses" id="check-outro" type="checkbox" name="interesses" value="outro">
                         Outro
                     </label>
                     
@@ -102,7 +102,13 @@
         </ul>
     </footer>    
 </body>
-<script src="js/jQuery.js"></script>
-<script src="js/ValidaForm.js"></script>
+
+<script src="js/lib/jQuery.js"></script>
+<script src="js/validaForm.js"></script>
+<script src="js/controller/FormularioController.js"></script>
+<script src="js/models/InscricaoForm.js"></script>
+<script>
+    let formControl = new FormularioController(); 
+</script>
 
 </html>
