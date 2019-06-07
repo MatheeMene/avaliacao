@@ -21,7 +21,7 @@
             <ul id="mensagem-erro">
             </ul>
 
-            <form onsubmit="formControl.dadosForm(event)" id="form-inscricao">
+            <form onsubmit="sucesso(event)" id="form-inscricao" method="post">
                 <fieldset>
                     <label for="nome">
                         Nome completo
@@ -105,10 +105,5 @@
 
 <script src="js/lib/jQuery.js"></script>
 <script src="js/validaForm.js"></script>
-<script src="js/controller/FormularioController.js"></script>
-<script src="js/models/InscricaoForm.js"></script>
-<script>
-    let formControl = new FormularioController(); 
-</script>
 
 </html>

@@ -165,7 +165,7 @@ function validaOpiniao() {
         textOpiniao.removeClass('correto');
         textOpiniao.removeClass('incorreto');
 
-        if(textOpiniao.val().length < 140) {
+        if(textOpiniao.val().length < 1) {
             textOpiniao.addClass('incorreto');
             campoOpiniao = false;
 
@@ -188,6 +188,41 @@ function validaForm() {
     if(campoNome && campoEmail && campoRadio && campoCheck && campoOpiniao) {
         botaoEnvia.removeClass('disabled').prop("disabled", false);
     }
+
+}
+
+function sucesso(event) {
+
+    let interessess = new Array();
+
+    let objInteresses = $('.interesses');
+
+    for(let i = 0; i < objInteresses.length; i++) {
+        if(objInteresses[i].checked) {
+            if(objInteresses[i].value == "outro") {
+                interessess.push($('#campo-interesses').val());
+            } else {
+                interessess.push(objInteresses[i].value);
+            }
+        }
+    }
+
+
+    event.preventDefault();    
+
+    let obj = {
+
+        "Nome": $('#nome').val(),
+        "Email": $('#email').val(),
+        "Disponibilidade": $("input[name='disponibilidade']:checked").val(),
+        "Interesses": interessess,
+        "Opinião": $('#textOpiniao').val()
+
+    }
+
+    let meuJson = JSON.stringify(obj);
+
+    console.log(meuJson);
 
 }
 
