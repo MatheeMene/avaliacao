@@ -21,8 +21,8 @@ html {
     padding-bottom: 2.5em;
 }
 .align p {
-    padding-bottom: 2em;
     font-family: 'Open Sans Condensed', sans-serif;
+    margin-bottom: 5%;
 }
 .bold {
     font-weight: bold;
@@ -97,9 +97,18 @@ html {
     color: #FFF;
 }
 .some-campo {
-    display: none;
-    padding-bottom: 1em;
+  display: none;
+  padding-bottom: 1em;
 }
 .distancia-display {
     margin-bottom: 1em;
+}
+.some-form {
+    display: none;
+}
+.paragrafo-termina {
+    padding: 3em;
+    background-color: #f8f8d9;
+    border-radius: 15px;
+    text-align: center;
 }

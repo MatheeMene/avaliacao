@@ -26,9 +26,9 @@ function validaNome() {
         }
 
         validaForm();
-        
+
     });
-    
+
 }
 
 validaNome();
@@ -55,7 +55,7 @@ function validaEmail() {
         }
 
         validaForm();
-    
+
     });
 
 }
@@ -71,7 +71,7 @@ function validaRadio() {
 
     let campoPersonalizar = $('#personalizar');
     let campoDisponibilidade = $('#campo-disponibilidade');
-    
+
     if (radioPersonalizar.is(':checked')) {
         campoPersonalizar.removeClass('distancia-display');
         campoDisponibilidade.removeClass('some-campo');
@@ -79,7 +79,7 @@ function validaRadio() {
         campoPersonalizar.addClass('distancia-display')
         campoDisponibilidade.addClass('some-campo');
     }
-    
+
     $("input[type='radio']").each(() => {
 
         if(!$("input:radio[name='disponibilidade']").is(':checked')){
@@ -87,7 +87,7 @@ function validaRadio() {
         } else {
             campoRadio = true;
         }
-        
+
     });
 
 }
@@ -159,7 +159,7 @@ campoInteresses.on('blur', () => {
 var campoOpiniao;
 
 function validaOpiniao() {
-    
+
     textOpiniao.on('input', () => {
 
         textOpiniao.removeClass('correto');
@@ -177,13 +177,15 @@ function validaOpiniao() {
         validaForm();
 
     });
-    
+
 }
 
 validaOpiniao();
 
 
 function validaForm() {
+
+    botaoEnvia.addClass('disabled').prop("disabled", false);
 
     if(campoNome && campoEmail && campoRadio && campoCheck && campoOpiniao) {
         botaoEnvia.removeClass('disabled').prop("disabled", false);
@@ -208,7 +210,7 @@ function sucesso(event) {
     }
 
 
-    event.preventDefault();    
+    event.preventDefault();
 
     let obj = {
 
@@ -224,10 +226,12 @@ function sucesso(event) {
 
     console.log(meuJson);
 
+    let formulario = $('#form-inscricao');
+
+    formulario.addClass("some-form");
+
+    let divParagrafo = $('.termina-form');
+
+    divParagrafo.append($(`<p class="paragrafo-termina">Inscrição enviada. Aguarde novos detalhes em seu e-mail ${$('#email').val()}</p>`));
+
 }
-
-
-
-    
-
-    
