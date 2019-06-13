@@ -8,7 +8,7 @@
 }
 .titulo-labs {
     font-family: 'Shadows Into Light', 'Arial', sans-serif;
-    font-style: italic; 
+    font-style: italic;
 
 }
 .topo-header {
@@ -166,7 +166,7 @@
 .foto-design:hover {
     transform: translateZ(3px) rotate(7deg) scale(1.2);
     transition: .8s;
-    z-index: 1000;    
+    z-index: 1000;
 }
 .foto-ia:hover {
     transition: 1s;
@@ -189,9 +189,9 @@
     width: calc(100% - 3em);
     padding-bottom: 2em;
 }
-.botao-faca-parte {
+a .botao-faca-parte {
     width: 25%;
-    padding: 1.5em;
+    padding: .6em;
     margin-left: calc(49% - 217px);
     background-color: #FFF;
     border: 2px solid #FFF;
@@ -199,7 +199,7 @@
     cursor: pointer;
     transition: .8s;
 }
-.botao-faca-parte a {
+.botao-faca-parte {
     font-family: 'Open Sans Condensed', sans-serif;
     text-decoration: none;
     font-size: 2em;
@@ -211,13 +211,13 @@
     border: 2px solid #FFF;
     transition: .8s;
 }
-.botao-faca-parte:hover a {
+a .botao-faca-parte:hover {
     color: #FFF;
 }
 .rodape {
     padding: 2em;
     background-color: #272727;
-    
+
 }
 .rodape ul li a {
     line-height: 1.6;

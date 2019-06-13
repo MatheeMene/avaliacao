@@ -1,13 +1,8 @@
-var posicaoVertentes = $('#vertentes').offset().top;
+var botaoRola = $("#scroll-button");
+var elmnt = document.getElementById("vertentes");
 
-$('.botao-faca-parte a[href="#vertentes"]').on('click', () => {
+botaoRola.click(() => {
 
-    var id = $(this).attr('href'),
-    targetOffset = $(id).offset().top;
-
-    $('html', 'body').animate(
-    {
-        scrollTop: posicaoVertentes - 100
-    }, 1000);
+    elmnt.scrollIntoView({behavior: 'smooth'});
 
 });
